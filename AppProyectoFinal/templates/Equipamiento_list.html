@@ -1,0 +1,24 @@
+{% extends 'padre.html' %}
+
+{% block ContenidoQueCambia %}
+
+    <ul>
+            
+        {% for Equipamientos in Equipamiento %}
+            <li>
+                <a href="{% url 'DetalleEquipamiento' Equipamientos.id %}">{{ Equipamientos }}</a>
+            </li>
+            <div>
+                <button>
+                    <a href="{% url 'EliminarEquipamiento' Equipamientos.id %}">Eliminar</a>
+                </button>
+                <button>
+                    <a href="{% url 'ActualizarEquipamiento' Equipamientos.id %}">Editar</a>
+                </button>
+            </div>
+        {% endfor %}
+            
+    </ul>
+    <a href="{% url 'CrearEquipamiento' %}">Crear Equipamientos</a>
+            
+{% endblock ContenidoQueCambia %}

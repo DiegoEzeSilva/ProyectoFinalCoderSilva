@@ -1,0 +1,24 @@
+{% extends 'padre.html' %}
+
+{% block ContenidoQueCambia %}
+
+    <ul>
+            
+        {% for ProductoUsado in ProductosUsados %}
+            <li>
+                <a href="{% url 'DetalleProductosUsados' ProductoUsado.id %}">{{ ProductoUsado }}</a>
+            </li>
+            <div>
+                <button>
+                    <a href="{% url 'EliminarProductosUsados' ProductoUsado.id %}">Eliminar</a>
+                </button>
+                <button>
+                    <a href="{% url 'ActualizarProductosUsados' ProductoUsado.id %}">Editar</a>
+                </button>
+            </div>
+        {% endfor %}
+            
+    </ul>
+    <a href="{% url 'CrearProductosUsados' %}">Crear ProductoUsado</a>
+            
+{% endblock ContenidoQueCambia %}

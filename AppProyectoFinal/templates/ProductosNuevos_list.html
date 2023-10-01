@@ -1,0 +1,24 @@
+{% extends 'padre.html' %}
+
+{% block ContenidoQueCambia %}
+
+    <ul>
+            
+        {% for ProductoNuevo in ProductosNuevos %}
+            <li>
+                <a href="{% url 'DetalleProductosNuevos' ProductoNuevo.id %}">{{ ProductoNuevo }}</a>
+            </li>
+            <div>
+                <button>
+                    <a href="{% url 'EliminarProductosNuevos' ProductoNuevo.id %}">Eliminar</a>
+                </button>
+                <button>
+                    <a href="{% url 'ActualizarProductosNuevos' ProductoNuevo.id %}">Editar</a>
+                </button>
+            </div>
+        {% endfor %}
+            
+    </ul>
+    <a href="{% url 'CrearProductosNuevos' %}">Crear ProductoNuevo</a>
+            
+{% endblock ContenidoQueCambia %}
